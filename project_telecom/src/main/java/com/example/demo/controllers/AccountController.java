@@ -20,30 +20,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.beans.Account;
 import com.example.demo.data.AccountRepository;
+import com.example.demo.services.TeleService;
 
 @RestController
 @RequestMapping("/accounts")
-@CrossOrigin(origins = "*")
-//@CrossOrigin(origins = {"http://localhost:4200", "https://prod-server.com"})
+@CrossOrigin(origins = "*")      //@CrossOrigin(origins = {"http://localhost:4200", "https://prod-server.com"})
 public class AccountController {
 	
 	@Autowired
-	private AccountRepository repository;
+	private TeleService service;
 	
-	//@RequestMapping(method = RequestMethod.POST, value = "/employee") // HandlerMapping: knows all of the potential "routes" for Dispatcher to refer
-	//@ResponseBody // whatever is returned is written directly to the HTTP response body
-	// by default: DispatcherServlet is going to expect a String to give to a ViewResolver to send the user to another HTML/JSP/page
+	
+	/**
+	 *     @RequestMapping(method = RequestMethod.POST, value = "/employee")  HandlerMapping: knows all of the potential "routes" for Dispatcher to refer
+	 *     @ResponseBody // whatever is returned is written directly to the HTTP response body
+	 *     by default: DispatcherServlet is going to expect a String to give to a ViewResolver to send the user to another HTML/JSP/page
+	 * 
+	 */
 	@PostMapping(value = "/account")
 	public Account save(@RequestBody Account account) { // get the employee JSON from the HTTP request body
-		return repository.save(account);
+		return service.saveAccount(account);
 	}
 	
-	@GetMapping("/account/{id}")
-	public ResponseEntity<Account> findById(@PathVariable Integer id) {
-		Optional<Account> optional = repository.findById(id);
-		return optional.isPresent() ? ResponseEntity.ok(optional.get()) : ResponseEntity.badRequest().build();
+	@GetMapping("/all_accounts")
+	public List<Account> findAll() {
+		return service.findAllAccounts();
 	}
-
 	
-
+	
 }
