@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.beans.Account;
+import com.example.demo.beans.Phone;
 import com.example.demo.beans.Plan;
 import com.example.demo.data.AccountRepository;
+import com.example.demo.data.PhoneRepository;
 import com.example.demo.data.PlanRepository;
 
 
@@ -23,6 +25,11 @@ public class TeleService {
 	
 	@Autowired
 	private AccountRepository acctRepo;
+	
+	@Autowired
+	private PhoneRepository phoneRepo;
+	
+	
 	
 	//--------------------------------------------------------------------->   Account part 
 	public Account saveAccount(Account account) {
@@ -76,4 +83,30 @@ public class TeleService {
 		p.setAccount(a);
 		return planRepo.save(p);
 	}
+	
+	//--------------------------------------------------------------------->   Phone part 
+	
+	public Phone savePhone(Phone phone) {
+		return phoneRepo.save(phone);
+	}
+	
+	
+	public List<Phone> findAllPhones() {
+
+		return phoneRepo.findAll();
+	}
+	
+	public void updatePhone(Phone phone, Integer id) {
+		if ((phone.getPhone_id() == id) && phoneRepo.findById(phone.getPhone_id()).isPresent()) {
+			phoneRepo.save(phone);
+		}else {
+			throw new ValidationException(); // custom validator??
+		}
+	}
+	
+	public Phone findPhoneById(Integer id) {
+		Optional<Phone> optional = phoneRepo.findById(id);
+		return optional.isPresent() ? optional.get() : null;
+	}
+
 }
