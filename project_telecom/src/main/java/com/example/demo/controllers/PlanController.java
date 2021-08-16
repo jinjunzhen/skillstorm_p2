@@ -60,16 +60,21 @@ public class PlanController {
 		return new ResponseEntity<>(body, HttpStatus.CREATED);
 	}
 	
-	@GetMapping(value = "/all_plans")
+	@GetMapping(value = "/plans")
 	public List<Plan> getAllPlans() {
 		return service.findAllPlans();
+	}
+	
+	@GetMapping(value = "/plan/{plan_id}")
+	public Plan getPlanById(@PathVariable int plan_id) {
+		return service.findPlanById(plan_id);
 	}
 	
 	@PutMapping(value = "{plan_id}/addPlan/{account_id}")
 	public Account PlanEnrollment(@PathVariable int plan_id, @PathVariable int account_id) {
 		Plan p = service.findPlanById(plan_id);
 		Account a = service.findAccountById(account_id);
-		Plan result = service.putPlanToAccount(p, a);
+		service.putPlanToAccount(p, a);
 		return service.findAccountById(account_id);
 	}
 	

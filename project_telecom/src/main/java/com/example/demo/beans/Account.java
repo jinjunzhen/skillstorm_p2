@@ -80,12 +80,18 @@ public class Account {
 		return account_id;
 	}
 
-	public Set<Plan> getPlans() {
+	public Set<Plan> getPlans() {   //not single term
 		return plans;
 	}
 
 	public void setPlans(Set<Plan> plans) {
 		this.plans = plans;
+	}
+	
+	
+	public Set<Plan> getPlan(){    //single turn
+		System.out.println("I am being call");
+		return plans;
 	}
 
 }
