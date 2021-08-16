@@ -44,10 +44,37 @@ public class Account {
 	@Column
 	private String log_in_email;
 	
+	@NotNull
+	@Column
+	private String log_in_pass_word;
+	
+	
 	public Account() {
 		super();
 	}
-	
+
+
+	public String getLog_in_email() {
+		return log_in_email;
+	}
+
+	public void setLog_in_email(String log_in_email) {
+		this.log_in_email = log_in_email;
+	}
+
+	public String getLog_in_pass_word() {
+		return log_in_pass_word;
+	}
+
+	public void setLog_in_pass_word(String log_in_pass_word) {
+		this.log_in_pass_word = log_in_pass_word;
+	}
+
+
+	public void setAccount_id(int account_id) {
+		this.account_id = account_id;
+	}
+
 
 	public int getAccount_id() {
 		return account_id;
@@ -59,18 +86,6 @@ public class Account {
 
 	public void setPlans(Set<Plan> plans) {
 		this.plans = plans;
-	}
-
-	public String getLog_in_email() {
-		return log_in_email;
-	}
-
-	public void setLog_in_email(String log_in_email) {
-		this.log_in_email = log_in_email;
-	}
-	
-	public Set<Plan> getPlan(){
-		return plans;
 	}
 
 }

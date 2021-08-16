@@ -42,7 +42,7 @@ public class AccountController {
 		return service.saveAccount(account);
 	}
 	
-	@GetMapping("/all_accounts")
+	@GetMapping("/account")
 	public List<Account> findAll() {
 		return service.findAllAccounts();
 	}

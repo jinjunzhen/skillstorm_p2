@@ -28,7 +28,7 @@ public class PhoneController {
 		return service.savePhone(phone);
 	}
 	
-	@GetMapping("/all_phones")
+	@GetMapping("/phone")
 	public List<Phone> findAll() {
 		return service.findAllPhones();
 	}

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InputFormComponent } from './input-form/input-form.component';
-import { LogInComponent } from './log-in/log-in.component';
+import { NewPhoneComponent } from './new-phone/new-phone.component';
+import { PhoneListComponent } from './phone-list/phone-list.component';
 
 const routes: Routes = [
   {
-    path: 'log-in', component: LogInComponent
+    path: 'new-phone', component: NewPhoneComponent
   },
   {
-    path: 'in-put', component: InputFormComponent
+    path: 'phone-list', component: PhoneListComponent
   }
 ];
 

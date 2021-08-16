@@ -1,11 +1,22 @@
-<div class="container-fliud">
-  <app-log-in></app-log-in>
-  <app-input-form></app-input-form>
-</div>
+<nav class="navbar navbar-expand navbar-dark bg-dark" >
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/">Log In</a>
+      <a class="nav-item nav-link" routerLink="/">Home</a>
+      <a class="nav-item nav-link" routerLink="/">add plans</a>
+      <a class="nav-item nav-link" routerLink="/">add number</a>
+      <a class="nav-item nav-link to_right" >Logout</a>
+  </div>
+</nav>
 
-<div class="container-fliud">
-  <a [routerLink]="['/log-in']">log-in</a> |
-  <a [routerLink]="['/in-put']">in-put</a>
+<app-registeration></app-registeration>
+<app-new-phone></app-new-phone>
+
+
+
+
+<!-- <div class="container-fliud">
+  <a [routerLink]="['/new-phone']">new-phone</a> |
+  <a [routerLink]="['/phone-list']">phone-list</a>
   <router-outlet></router-outlet>
 
-</div>
+</div> -->
