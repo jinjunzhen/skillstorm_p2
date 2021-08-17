@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.beans.Account;
+import com.example.demo.beans.Plan;
 import com.example.demo.data.AccountRepository;
 import com.example.demo.services.TeleService;
 
@@ -42,9 +43,25 @@ public class AccountController {
 		return service.saveAccount(account);
 	}
 	
-	@GetMapping("/accounts")
+	@GetMapping("/account")
 	public List<Account> findAll() {
 		return service.findAllAccounts();
+	}
+	
+	@GetMapping("/account/{account_id}")
+	public Account getAccountById(@PathVariable int account_id) {
+		return service.findAccountById(account_id);
+	}
+	
+	@PostMapping(value = "/getOneAccount")
+	public Account getOneAccount(@RequestBody Account account) { // get the employee JSON from the HTTP request body
+		List<Account> accounts = service.findAllAccounts();
+		for (Account a : accounts) {
+			if (a.getLog_in_email().equals( account.getLog_in_email() ) && a.getLog_in_pass_word().equals(account.getLog_in_pass_word())) {
+				return a;
+			}
+		}
+		return null;
 	}
 	
 	

@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterationComponent } from './registeration/registeration.component';
 import { LogOnComponent } from './log-on/log-on.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { AccountListComponent } from './account-list/account-list.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { LogInComponent } from './log-in/log-in.component';
     NewPhoneComponent,
     RegisterationComponent,
     LogOnComponent,
-    LogInComponent
+    LogInComponent,
+    AccountListComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,6 @@ import { LogInComponent } from './log-in/log-in.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    FormsModule
   ],
   providers: [
     AuthguardServiceService

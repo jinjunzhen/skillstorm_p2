@@ -11,13 +11,17 @@ export class TelecomService {
 
   phone_url = 'http://localhost:9001/phones/phone';
   account_url = 'http://localhost:9001/accounts/account';
-
+  findAccountById: any;
 
 
   constructor(private httpClient: HttpClient) { }
 
   findAllPhone(): Observable<Phone[]>{
     return this.httpClient.get<Phone[]>(this.phone_url);
+  }
+
+  findAllAccount(): Observable<Account[]>{
+    return this.httpClient.get<Account[]>(this.account_url);
   }
 
   savePhone(phone : Phone): Observable<Phone> {
