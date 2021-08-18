@@ -1,0 +1,87 @@
+[33mcommit 46f02c3382cb0bfa08de255b626257c75659c5d1[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Addy <addisonkao@gmail.com>
+Date:   Tue Aug 17 22:47:34 2021 -0400
+
+    added the annotations for phones to plan (many to one)
+
+[33mcommit 283c3a345b020eab25c4a4052d83075bfc5d6fa8[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: jinjun zhen <jinjunzhen@yahoo.com>
+Date:   Tue Aug 17 17:41:33 2021 -0500
+
+    be able to fetch 1 account to for log in
+
+[33mcommit 3e10ad5258b1989d759ec47cad12c8ad3b12bdab[m
+Author: jinjun zhen <jinjunzhen@yahoo.com>
+Date:   Mon Aug 16 16:21:08 2021 -0500
+
+    fix little bug
+
+[33mcommit 371405cddd991e23a8bceeb985d8791e26df9072[m
+Author: jinjun zhen <jinjunzhen@yahoo.com>
+Date:   Mon Aug 16 15:03:18 2021 -0500
+
+    working on the register and log in functions
+
+[33mcommit b3dbeeba1b53334fa06c2fdca2bdede9340977e5[m
+Author: jinjun zhen <jinjunzhen@yahoo.com>
+Date:   Sat Aug 14 21:31:33 2021 -0500
+
+    take out outsode bootstrap
+
+[33mcommit bd697d0c9bb21fa82504d244dfafe673ccdb958c[m
+Author: jinjunzhen <45610962+jinjunzhen@users.noreply.github.com>
+Date:   Sat Aug 14 17:57:28 2021 -0500
+
+    Delete eded.txt
+
+[33mcommit 081cb30f18b58c7c5bf6290928b7759dc1b3e667[m
+Merge: 3763ceb 523f497
+Author: jinjun zhen <jinjunzhen@yahoo.com>
+Date:   Sat Aug 14 17:55:23 2021 -0500
+
+    Merge branch 'master' of https://github.com/jinjunzhen/skillstorm_p2
+
+[33mcommit 523f49728c21de1ff6a291cdf0eb5b54b4e23fc1[m
+Author: jinjun zhen <jinjunzhen@yahoo.com>
+Date:   Sat Aug 14 17:50:13 2021 -0500
+
+    wefwe
+
+[33mcommit 3763ceb288884ab9f961e1f176bf0e3057f0b51b[m
+Author: jinjun zhen <jinjunzhen@yahoo.com>
+Date:   Sat Aug 14 16:25:04 2021 -0500
+
+    added phone model and start working on angular
+
+[33mcommit 27a326b14828e780d06e5f50103e09a471b0763a[m
+Author: jinjun zhen <jinjunzhen@yahoo.com>
+Date:   Thu Aug 12 13:29:49 2021 -0500
+
+    OneToMany table good to go
+
+[33mcommit 1b4a60329fd378113dfb9d70101113cd812336f1[m
+Author: jinjun zhen <jinjunzhen@yahoo.com>
+Date:   Wed Aug 11 19:11:59 2021 -0500
+
+    working on foreign contrain
+
+[33mcommit dcae30f060256c364ca2c080f42e9ce4029f4c6b[m
+Merge: 4acab46 d7546a4
+Author: jinjunzhen <45610962+jinjunzhen@users.noreply.github.com>
+Date:   Tue Aug 10 07:19:22 2021 -0700
+
+    Merge pull request #1 from AddyK4/test-push-changes
+    
+    Test pushing to repo
+
+[33mcommit d7546a4f40701cf4078cc57d13968289da7a3c9c[m
+Author: Addy <addisonkao@gmail.com>
+Date:   Tue Aug 10 10:15:45 2021 -0400
+
+    Test pushing to repo
+
+[33mcommit 4acab46766bd7e625d8bbec8bf626373311d44c1[m
+Author: jinjun zhen <jinjunzhen@yahoo.com>
+Date:   Tue Aug 10 08:24:30 2021 -0500
+
+    first commet

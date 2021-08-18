@@ -89,18 +89,18 @@ public class Phone {
 	}
 
 	public Plan getPhonePlan() {
-		return phonePlan;
+		return phone_plan;
 	}
 
 	public void setPhonePlan(Plan phonePlan) {
-		this.phonePlan = phonePlan;
+		this.phone_plan = phonePlan;
 	}
 
 	@Override
 	public String toString() {
 		return "Phone [phone_id=" + phone_id + ", phone_area=" + phone_area + ", phone_number=" + phone_number
 				+ ", phone_first_name=" + phone_first_name + ", phone_last_name=" + phone_last_name + ", phonePlan="
-				+ phonePlan + "]";
+				+ phone_plan + "]";
 	}
 	
 	
