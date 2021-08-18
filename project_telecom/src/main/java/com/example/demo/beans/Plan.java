@@ -30,6 +30,9 @@ public class Plan {
 	@Column
 	private String plan_type;
 	
+	@Column
+	private long phone_number;
+	
 	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "acc_id", referencedColumnName = "account_id")
@@ -37,7 +40,6 @@ public class Plan {
 	
 	public Plan() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getPlan_id() {
@@ -58,6 +60,14 @@ public class Plan {
 
 	public Account getAccount() {
 		return account;
+	}
+
+	public long getPhone_number() {
+		return phone_number;
+	}
+
+	public void setPhone_number(long phone_number) {
+		this.phone_number = phone_number;
 	}
 
 	public void setAccount(Account account) {
