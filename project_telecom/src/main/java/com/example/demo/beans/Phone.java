@@ -1,10 +1,13 @@
 package com.example.demo.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity // this is an object to be managed by Hibernate
@@ -28,6 +31,10 @@ public class Phone {
 	@Column
 	private String phone_last_name;
 
+	@Column
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "plan_id", referencedColumnName = "plan_id")//Not sure if the name and refColumnName is correct.
+	private Plan phone_plan;
 	
 	public Phone() {
 		super();
@@ -81,11 +88,19 @@ public class Phone {
 		this.phone_last_name = phone_last_name;
 	}
 
+	public Plan getPhonePlan() {
+		return phonePlan;
+	}
+
+	public void setPhonePlan(Plan phonePlan) {
+		this.phonePlan = phonePlan;
+	}
 
 	@Override
 	public String toString() {
 		return "Phone [phone_id=" + phone_id + ", phone_area=" + phone_area + ", phone_number=" + phone_number
-				+ ", phone_first_name=" + phone_first_name + ", phone_last_name=" + phone_last_name + "]";
+				+ ", phone_first_name=" + phone_first_name + ", phone_last_name=" + phone_last_name + ", phonePlan="
+				+ phonePlan + "]";
 	}
 	
 	
