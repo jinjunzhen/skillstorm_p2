@@ -31,9 +31,8 @@ public class Phone {
 	@Column
 	private String phone_last_name;
 
-	@Column
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "plan_id", referencedColumnName = "plan_id")//Not sure if the name and refColumnName is correct.
+	@JoinColumn(name = "plan_id", referencedColumnName = "plan_id") //Not sure if the name and refColumnName is correct.
 	private Plan phone_plan;
 	
 	public Phone() {
