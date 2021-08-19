@@ -5,11 +5,11 @@
     <div class="card-body">
         <form (ngSubmit)="saveAccount(); AccountForm.reset()" id="new_account" action=""  #AccountForm>
             <label for="">enter your email</label>
-            <input [(ngModel)]= "accountToSave.log_in_email" type="email" placeholder="account_email" name="account_email" id="account_email">
-            <input [(ngModel)]= "accountToSave.log_in_pass_word" type="text" placeholder="account_password" name="account_password" id="account_password">
+            <input  type="email" placeholder="account_email" name="account_email" id="account_email">
+            <input type="text" placeholder="account_password" name="account_password" id="account_password">
             <input class="btn btn-primary" type="submit" value="Save">
         </form>
     </div>
 </div>
-
+<!-- [(ngModel)]= "accountToSave.log_in_email" -->
 <div>registeration end!</div>

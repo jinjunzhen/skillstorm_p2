@@ -9,21 +9,20 @@ import { PhoneListComponent } from './phone-list/phone-list.component';
 import { NewPhoneComponent } from './new-phone/new-phone.component';
 import { AuthguardServiceService } from './authguard-service.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RegisterationComponent } from './registeration/registeration.component';
-import { LogOnComponent } from './log-on/log-on.component';
+
 import { LogInComponent } from './log-in/log-in.component';
 import { AccountListComponent } from './account-list/account-list.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    LogInComponent,
     PhoneListComponent,
     NewPhoneComponent,
-    RegisterationComponent,
-    LogOnComponent,
-    LogInComponent,
-    AccountListComponent
+    AccountListComponent,
+    NewPhoneComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
