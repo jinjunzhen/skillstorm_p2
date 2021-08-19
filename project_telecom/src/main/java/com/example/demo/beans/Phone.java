@@ -1,11 +1,15 @@
 package com.example.demo.beans;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity // this is an object to be managed by Hibernate
 @Table(name = "TELECOM_PHONE_TABLE")
@@ -27,6 +31,11 @@ public class Phone {
 	
 	@Column
 	private String phone_last_name;
+	
+	@JsonIgnore
+	@ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pl_id", referencedColumnName = "plan_id")
+    private Plan plan;
 
 	
 	public Phone() {
@@ -80,7 +89,18 @@ public class Phone {
 	public void setPhone_last_name(String phone_last_name) {
 		this.phone_last_name = phone_last_name;
 	}
+	
+	public Plan getPlan() {
+		return plan;
+	}
 
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
+
+	public void assignPlone(Plan pl) {
+		this.plan = pl;
+	}
 
 	@Override
 	public String toString() {
@@ -88,6 +108,9 @@ public class Phone {
 				+ ", phone_first_name=" + phone_first_name + ", phone_last_name=" + phone_last_name + "]";
 	}
 	
+	
+
+
 	
 
 }

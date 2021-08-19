@@ -108,5 +108,10 @@ public class TeleService {
 		Optional<Phone> optional = phoneRepo.findById(id);
 		return optional.isPresent() ? optional.get() : null;
 	}
+	
+	public Phone putPhoneToPlan(Phone ph, Plan pl ){
+		ph.setPlan(pl);
+		return phoneRepo.save(ph);
+	}
 
 }

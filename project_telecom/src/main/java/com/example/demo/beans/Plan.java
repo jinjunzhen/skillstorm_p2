@@ -1,5 +1,8 @@
 package com.example.demo.beans;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 //JPA annotations
@@ -10,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
@@ -26,6 +30,10 @@ public class Plan {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private int plan_id;
+	
+	@JsonIgnore
+    @OneToMany(mappedBy = "plan")
+    private Set<Phone> phones = new HashSet<>();
 	
 	@Column
 	private String plan_type;
@@ -66,6 +74,20 @@ public class Plan {
 
 	public void assignPlan(Account a) {
 		this.account = a;
+	}
+	
+	public Set<Phone> getPhones() {   //not single term
+		return phones;
+	}
+
+	public void setPhone(Set<Phone> phones) {
+		this.phones = phones;
+	}
+	
+	
+	public Set<Phone> getPhone(){    //single turn
+		System.out.println("I am being call");
+		return phones;
 	}
 	
 }
