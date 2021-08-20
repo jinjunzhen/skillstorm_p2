@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,7 +61,7 @@ public class PlanController {
 		return new ResponseEntity<>(body, HttpStatus.CREATED);
 	}
 	
-	@GetMapping(value = "/plans")
+	@GetMapping(value = "/plan")
 	public List<Plan> getAllPlans() {
 		return service.findAllPlans();
 	}
@@ -76,6 +77,11 @@ public class PlanController {
 		Account a = service.findAccountById(account_id);
 		service.putPlanToAccount(p, a);
 		return service.findAccountById(account_id);
+	}
+	
+	@DeleteMapping("/plan/{plan_id}")
+	public void deletePlanById(@PathVariable int plan_id) {
+		service.deletePlanById(plan_id);
 	}
 	
 }

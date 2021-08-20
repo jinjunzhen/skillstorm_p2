@@ -84,6 +84,11 @@ public class TeleService {
 		return planRepo.save(p);
 	}
 	
+	public Plan deletePlanById(Integer plan_id) {
+		Optional<Plan> optional = Optional.empty();
+		return optional.isPresent() ? optional.get() : null;
+	}
+	
 	//--------------------------------------------------------------------->   Phone part 
 	
 	public Phone savePhone(Phone phone) {
@@ -112,6 +117,11 @@ public class TeleService {
 	public Phone putPhoneToPlan(Phone ph, Plan pl ){
 		ph.setPlan(pl);
 		return phoneRepo.save(ph);
+	}
+	
+	public void deletePhoneById(int phone_id) {
+		Optional<Phone> optional = Optional.empty();
+		phoneRepo.deleteById(phone_id);
 	}
 
 }

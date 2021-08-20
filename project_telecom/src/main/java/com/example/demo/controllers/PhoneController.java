@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +27,7 @@ public class PhoneController {
 	private TeleService service;
 	
 	
-	@PostMapping(value = "/phone")
+	@PostMapping("/phone")
 	public Phone save(@RequestBody Phone phone) { // get the employee JSON from the HTTP request body
 		return service.savePhone(phone);
 	}
@@ -42,12 +43,17 @@ public class PhoneController {
 	}
 	
 	
-	@PutMapping(value = "{phone_id}/addPhone/{plan_id}")
+	@PutMapping("{phone_id}/addPhone/{plan_id}")
 	public Plan PhoneEnrollment(@PathVariable int phone_id, @PathVariable int plan_id) {
 		Phone ph = service.findPhoneById(phone_id);
 		Plan pl = service.findPlanById(plan_id);
 		service.putPhoneToPlan(ph, pl);
 		return service.findPlanById(plan_id);
+	}
+	
+	@DeleteMapping("/phone/{phone_id}")
+	public void deletePhoneById(@PathVariable int phone_id) {
+		service.deletePhoneById(phone_id);
 	}
 
 }

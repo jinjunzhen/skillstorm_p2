@@ -80,11 +80,9 @@ public class Phone {
 		this.phone_first_name = phone_first_name;
 	}
 
-
 	public String getPhone_last_name() {
 		return phone_last_name;
 	}
-
 
 	public void setPhone_last_name(String phone_last_name) {
 		this.phone_last_name = phone_last_name;
@@ -107,10 +105,5 @@ public class Phone {
 		return "Phone [phone_id=" + phone_id + ", phone_area=" + phone_area + ", phone_number=" + phone_number
 				+ ", phone_first_name=" + phone_first_name + ", phone_last_name=" + phone_last_name + "]";
 	}
-	
-	
-
-
-	
 
 }

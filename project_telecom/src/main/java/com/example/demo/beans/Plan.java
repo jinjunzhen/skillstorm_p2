@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -35,6 +36,7 @@ public class Plan {
     @OneToMany(mappedBy = "plan")
     private Set<Phone> phones = new HashSet<>();
 	
+	@NotNull
 	@Column
 	private String plan_type;
 	
