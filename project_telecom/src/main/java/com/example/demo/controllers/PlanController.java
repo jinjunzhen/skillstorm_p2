@@ -79,6 +79,9 @@ public class PlanController {
 		return service.findAccountById(account_id);
 	}
 	
+//	@PutMapping("disconnect/{plan_id}")
+//	public void PanDisconnect(@PathVariable int plan_id, )
+	
 	@DeleteMapping("/plan/{plan_id}")
 	public void deletePlanById(@PathVariable int plan_id) {
 		service.deletePlanById(plan_id);

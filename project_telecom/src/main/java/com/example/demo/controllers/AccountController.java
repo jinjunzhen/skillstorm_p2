@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.beans.Account;
@@ -24,6 +27,8 @@ import com.example.demo.data.AccountRepository;
 import com.example.demo.services.TeleService;
 
 @RestController
+@ResponseBody
+@ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
 @RequestMapping("/accounts")
 @CrossOrigin(origins = "*")      //@CrossOrigin(origins = {"http://localhost:4200", "https://prod-server.com"})
 public class AccountController {
@@ -54,6 +59,7 @@ public class AccountController {
 	}
 	
 	@PostMapping(value = "/getOneAccount")
+	@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Resource was not found on the server")
 	public Account getOneAccount(@RequestBody Account account) { // get the employee JSON from the HTTP request body
 		List<Account> accounts = service.findAllAccounts();
 		for (Account a : accounts) {
@@ -62,6 +68,11 @@ public class AccountController {
 			}
 		}
 		return null;
+	}
+	
+	@DeleteMapping("/account/{account_id}")
+	public void deleteAccount(@PathVariable int account_id) {
+		service.deleteAccountById(account_id);
 	}
 	
 	

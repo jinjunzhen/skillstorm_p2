@@ -1,8 +1,10 @@
 package com.example.demo.beans;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 //JPA annotations
 import javax.persistence.Entity;
@@ -17,7 +19,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
  * Hibernate annotations (JPA)
@@ -29,7 +34,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 @Entity // this is an object to be managed by Hibernate
 @Table(name = "TELECOM_ACCOUNT_TABLE")
-public class Account {
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+public class Account{
 	
 	@Id //Primary key
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +43,8 @@ public class Account {
 	private int account_id;
 	
 	@JsonIgnore
-    @OneToMany(mappedBy = "account")
+	@JsonManagedReference
+    @OneToMany(mappedBy = "account", cascade = CascadeType.MERGE)
     private Set<Plan> plans = new HashSet<>();
 	
 	@NotNull
@@ -52,7 +59,6 @@ public class Account {
 	public Account() {
 		super();
 	}
-
 
 	public String getLog_in_email() {
 		return log_in_email;
@@ -88,12 +94,4 @@ public class Account {
 		this.plans = plans;
 	}
 	
-	
-	public Set<Plan> getPlan(){    //single turn
-		System.out.println("I am being call");
-		return plans;
-	}
-	
-	
-
 }

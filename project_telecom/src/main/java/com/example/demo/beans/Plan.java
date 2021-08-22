@@ -21,30 +21,36 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity // this is an object to be managed by Hibernate
 @Table(name = "TELECOM_PLAN_TABLE")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Plan {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private int plan_id;
-	
+
+	@JsonManagedReference
 	@JsonIgnore
-    @OneToMany(mappedBy = "plan")
-    private Set<Phone> phones = new HashSet<>();
-	
+	@OneToMany(mappedBy = "plan", cascade = CascadeType.ALL,  orphanRemoval = true)
+	private Set<Phone> phones = new HashSet<>();
+
 	@NotNull
 	@Column
 	private String plan_type;
-	
-	@JsonIgnore
-	@ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "acc_id", referencedColumnName = "account_id")
-    private Account account;
-	
+
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JsonBackReference
+	@JoinColumn(name = "acc_id", referencedColumnName = "account_id")
+	private Account account;
+
 	public Plan() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -77,19 +83,9 @@ public class Plan {
 	public void assignPlan(Account a) {
 		this.account = a;
 	}
-	
-	public Set<Phone> getPhones() {   //not single term
+
+	public Set<Phone> getPhones() { // not single term
 		return phones;
 	}
 
-	public void setPhone(Set<Phone> phones) {
-		this.phones = phones;
-	}
-	
-	
-	public Set<Phone> getPhone(){    //single turn
-		System.out.println("I am being call");
-		return phones;
-	}
-	
 }
