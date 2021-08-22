@@ -1,0 +1,12 @@
+<div class="container">
+    <form  (ngSubmit)="toSaveAccount(); AccountForm.reset()" #AccountForm>
+      <h1 class="h3 mb-3 fw-normal">Create your accound</h1>
+  
+      <input [(ngModel)]="accountToStore.log_in_email" type="email" class="form-control" name="account_email" placeholder="Email" required>
+  
+      <input [(ngModel)]="accountToStore.log_in_pass_word" type="password" class="form-control" name="account_password" placeholder="Password"
+        required>
+  
+      <input class="btn btn-primary" type="submit" value="Register">
+    </form>
+</div>
