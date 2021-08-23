@@ -1,1 +1,29 @@
-<p>plan-detail works!</p>
+
+<div class="container planDetail">
+    <h2>Plan details</h2>
+    <app-add-phone [onePlan] = (onePlan)></app-add-phone>
+    <table id="plan-table" class="table">
+        <tr>
+            <th></th>
+            <th>plan id</th>
+            <th>plan type</th>
+        </tr>
+        <tr>
+            <th></th>
+            <td>{{onePlan.plan_id}}</td>
+            <td>{{onePlan.plan_type}}</td>
+        </tr>
+    </table>
+    <div *ngFor="let onePhone of onePlan.phone">
+        <app-phone-detail [onePhone] = (onePhone)></app-phone-detail>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

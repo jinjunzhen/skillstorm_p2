@@ -1,19 +1,28 @@
 <!-- <p >Username :  {{aid}} </p> -->
 
-<div id="phone-list">
-    <h2>Account detail</h2>
-    <table id="account-table" class="table">
-        <tr>
-            <th>account_id</th>
-            <th>log_in_email</th>
-            <th></th>
-        </tr>
-        <tr>
-            <td>{{account.account_id}}</td>
-            <td>{{account.log_in_email}}</td>
-        </tr>
-    </table>
+<div class="container" id="">
+
+    <div class="col-6">
+
+        <h2>Account detail</h2>
+
+        <table id="account-table" class="table acctDetail">
+            <tr>
+                <th>account id</th>
+                <th>email</th>
+            </tr>
+            <tr>
+                <td>123</td>
+                <td>456</td>
+            </tr>
+        </table>
+    </div>
 </div>
-<div *ngFor="let plan of account.plan">
-    <app-plan-detail></app-plan-detail>
+
+<div class="container col-md-5 col-lg-6">
+    <app-add-plan></app-add-plan>
+    <br>
+    <div *ngFor="let onePlan of planList">
+        <app-plan-detail [onePlan]='onePlan'></app-plan-detail>
+    </div>
 </div>

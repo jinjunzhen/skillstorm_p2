@@ -14,7 +14,6 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   accountToStore = new Account();
-  acct_id! : number;
 
   constructor(
     private service: TelecomService,
@@ -24,10 +23,11 @@ export class RegisterComponent implements OnInit {
 
 
   toSaveAccount(): void{
-    this.service.logInAccount(this.accountToStore).subscribe((data) => {
+    this.service.saveAccount(this.accountToStore).subscribe((data) => {
       withCredentials: true;
-      this.router.navigate(['/']);
+      
       this.accountToStore = data;
+      this.router.navigate(['home/'+this.accountToStore.account_id]);
       console.log(this.accountToStore);
       Emitters.authEmitter.emit(true);
     }, err => {
@@ -36,9 +36,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.acct_id = params['acct_id'];
-    });
+
   }
 
 }

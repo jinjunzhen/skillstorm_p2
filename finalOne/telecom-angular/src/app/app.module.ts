@@ -9,9 +9,11 @@ import { NavoutComponent } from './navout/navout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import { AccountListComponent } from './account-list/account-list.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { PlanDetailComponent } from './plan-detail/plan-detail.component';
+import { AddPlanComponent } from './add-plan/add-plan.component';
+import { AddPhoneComponent } from './add-phone/add-phone.component';
+import { PhoneDetailComponent } from './phone-detail/phone-detail.component';
 
 
 @NgModule({
@@ -22,9 +24,11 @@ import { PlanDetailComponent } from './plan-detail/plan-detail.component';
     NavComponent,
     NavoutComponent,
     HomeComponent,
-    AccountListComponent,
     AccountDetailComponent,
     PlanDetailComponent,
+    AddPlanComponent,
+    AddPhoneComponent,
+    PhoneDetailComponent,
   ],
   imports: [
     BrowserModule,

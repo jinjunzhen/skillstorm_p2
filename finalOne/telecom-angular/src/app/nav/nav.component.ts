@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Account from '../models/Account';
+import { TelecomService } from '../telecom.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
   // isLogedIn = true;
 
-  constructor() { }
+  constructor(private service: TelecomService) { }
+
 
   ngOnInit(): void {
   }

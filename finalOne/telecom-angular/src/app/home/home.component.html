@@ -1,4 +1,8 @@
 
-<h4>{{account_id}}</h4>
 
-<app-account-detail [inHome] = 'inHome'> </app-account-detail>
+<div *ngIf="(account)">
+    <app-account-detail></app-account-detail>
+</div>
+
+
+
