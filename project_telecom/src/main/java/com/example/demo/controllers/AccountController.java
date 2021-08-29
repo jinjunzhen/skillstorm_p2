@@ -28,7 +28,6 @@ import com.example.demo.services.TeleService;
 
 @RestController
 @ResponseBody
-@ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
 @RequestMapping("/accounts")
 @CrossOrigin(origins = "*")      //@CrossOrigin(origins = {"http://localhost:4200", "https://prod-server.com"})
 public class AccountController {
@@ -58,8 +57,7 @@ public class AccountController {
 		return service.findAccountById(account_id);
 	}
 	
-	@PostMapping(value = "/getOneAccount")
-	@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Resource was not found on the server")
+	@PostMapping(value = "/login")
 	public Account getOneAccount(@RequestBody Account account) { // get the employee JSON from the HTTP request body
 		List<Account> accounts = service.findAllAccounts();
 		for (Account a : accounts) {

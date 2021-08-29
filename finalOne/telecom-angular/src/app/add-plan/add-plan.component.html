@@ -1,0 +1,20 @@
+
+<div class="col-2">
+    <button (click)="toShow()" class="btn btn-secondary" type="button">add new plan</button>
+</div>
+
+<div *ngIf="showForm" class="container col-6">
+    <div class="row">
+        <div class="card">
+            <form [formGroup]="planform" (submit)="savePlan()">
+                <select class="form-select form-select-sm mb-3" aria-label=".form-select-lg" formControlName="plan_type">
+                    <option selected>select plan to enroll</option>
+                    <option value="a">Plan A $30/line</option>
+                    <option value="b">Plan B $40/line</option>
+                    <option value="c">Plan C $50/line</option>
+                </select>
+                <button type="submit">add new Plan</button>
+            </form>
+        </div>
+    </div>
+</div>
