@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 import javax.validation.ValidationException;
 
@@ -28,6 +29,8 @@ public class TeleService {
 	
 	@Autowired
 	private PhoneRepository phoneRepo;
+	
+
 	
 	
 	
@@ -127,5 +130,25 @@ public class TeleService {
 		Optional<Phone> optional = Optional.empty();
 		phoneRepo.deleteById(phone_id);
 	}
+	
+	public boolean isNumberInUse(String phoneNumber) {
+		return phoneRepo.findByPhoneNumber(phoneNumber).isPresent();
+	}
+	
+
+	public String generateNumber() {
+		Random r=new Random();
+		String phone_number ="";
+		do {
+			phone_number += r.nextInt(9)+1;
+			for(int i=0;i<9;i++) {
+				phone_number +=r.nextInt(10);
+			}
+			System.out.println(phone_number);
+			
+		}while(isNumberInUse(phone_number));
+		return phone_number;
+	}
+
 
 }

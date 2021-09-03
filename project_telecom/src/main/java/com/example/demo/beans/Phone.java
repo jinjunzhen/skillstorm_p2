@@ -26,10 +26,7 @@ public class Phone {
 	private int phone_id;
 
 	@Column
-	private long phone_area;
-
-	@Column
-	private long phone_number;
+	private String phoneNumber;
 
 	@Column
 	private String phone_first_name;
@@ -54,20 +51,12 @@ public class Phone {
 		this.phone_id = phone_id;
 	}
 
-	public long getPhone_area() {
-		return phone_area;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setPhone_area(long phone_area) {
-		this.phone_area = phone_area;
-	}
-
-	public long getPhone_number() {
-		return phone_number;
-	}
-
-	public void setPhone_number(long phone_number) {
-		this.phone_number = phone_number;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getPhone_first_name() {
@@ -96,12 +85,6 @@ public class Phone {
 
 	public void assignPlone(Plan pl) {
 		this.plan = pl;
-	}
-
-	@Override
-	public String toString() {
-		return "Phone [phone_id=" + phone_id + ", phone_area=" + phone_area + ", phone_number=" + phone_number
-				+ ", phone_first_name=" + phone_first_name + ", phone_last_name=" + phone_last_name + "]";
 	}
 
 }

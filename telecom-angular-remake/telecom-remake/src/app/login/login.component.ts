@@ -5,6 +5,8 @@ import Account from '../models/Account';
 import Box from '../models/InoutForm';
 import { TelecomService } from '../telecom.service';
 import { TokenStorageService } from '../token-storage.service';
+import * as $ from "jquery";
+
 
 
 @Component({
@@ -28,8 +30,12 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
   ) { }
 
+
+
+
   ngOnInit(): void {
 
+    
 
     this.accountForm = this.formBuilder.group({
       log_in_email: new FormControl("", [

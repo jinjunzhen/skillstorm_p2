@@ -16,6 +16,8 @@ export class AddPhoneComponent implements OnInit {
   @Input() onePlan!: Plan;
   newPhoneToAdd!: FormGroup;
   phoneToAdd!: Phone;
+  phoneNumber!: string;
+  phone_number_display!: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,10 +30,7 @@ export class AddPhoneComponent implements OnInit {
   ngOnInit(): void {
 
     this.newPhoneToAdd = this.formBuilder.group({
-      phone_area: new FormControl("", [
-        Validators.required
-      ]),
-      phone_number: new FormControl("", [
+      phoneNumber: new FormControl("", [
         Validators.required
       ]),
       phone_first_name: new FormControl("", [
@@ -51,18 +50,18 @@ export class AddPhoneComponent implements OnInit {
   }
 
   getNumber(): void {
-    let phone_area = Math.floor(Math.random() * (999 - 100) + 100);
-    let phone_number = Math.floor(Math.random() * (9999 - 1000) + 1000);
+    this.service.generateNewNumber().subscribe((data: any) => {
 
-    let randomPhoneNumber = {
-      'phone_area' : phone_area,
-      'phone_number' : phone_number
-    }
-
-    this.newPhoneToAdd.patchValue(randomPhoneNumber);
+      this.phoneNumber = data;
+      let randomPhoneNumber = {
+        'phoneNumber' : this.phoneNumber,
+      }
+      this.newPhoneToAdd.patchValue(randomPhoneNumber);
+    },);
   }
 
   addPhone():void{
+    console.log(this.newPhoneToAdd.value);
     this.service.savePhone(this.newPhoneToAdd.value).subscribe((data)=> {
       this.phoneToAdd = data;
       this.service.connectPhoneToPlan(this.phoneToAdd.phone_id, this.onePlan.plan_id);
@@ -77,6 +76,11 @@ export class AddPhoneComponent implements OnInit {
 
   reloadPage(): void {
     window.location.reload();
+  }
+
+  getPhoneFormat(): void {
+    this.phone_number_display = this.phoneNumber;
+
   }
 
 }

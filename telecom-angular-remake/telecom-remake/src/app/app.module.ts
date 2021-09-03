@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { EditDeviceComponent } from './edit-device/edit-device.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     AddPhoneComponent,
     FrontPageComponent,
     NavbarComponent,
+    EditDeviceComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,8 +3,7 @@
       <h5 class="card-title">new device</h5>
 
       <form [formGroup]="newPhoneToAdd">
-        <input type="text" formControlName="phone_area"   readonly>
-        <input type="text" formControlName="phone_number"   readonly>
+        <input type="text" formControlName="phoneNumber"   readonly>
         <input type="text" formControlName="phone_first_name"   placeholder="first name">
         <input type="text" formControlName="phone_last_name"   placeholder="last name">
         <button class="btn btn-primary" (click)="getNumber()">obtain number</button>

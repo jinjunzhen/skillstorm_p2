@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.beans.Plan;
 
+@Repository
 public interface PlanRepository extends JpaRepository<Plan, Integer> {
 	
 //	public List<Plan> findByPlanID(int id);

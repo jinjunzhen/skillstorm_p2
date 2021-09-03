@@ -13,7 +13,7 @@ import { TokenStorageService } from '../token-storage.service';
 export class RegisterComponent implements OnInit {
   isLoggedIn = false;
   accountForm!: FormGroup;
-  account!:Account;
+  account!: Account;
   roles: string[] = [];
   errorMessage = "";
 
@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
     private tokenStorage: TokenStorageService,
     private service: TelecomService,
     private formBuilder: FormBuilder,
-    ) { }
+  ) { }
 
   ngOnInit(): void {
 
@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  register(): void{
+  register(): void {
     console.log(this.accountForm.value);
     this.service.saveAccount(this.accountForm.value).subscribe(data => {
       this.account = data;
@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
       this.tokenStorage.saveUser(this.account);
       this.isLoggedIn = true;
 
-      this.router.navigate(['/home']).then(()=>{
+      this.router.navigate(['/home']).then(() => {
         parent.location.reload();
       });
 

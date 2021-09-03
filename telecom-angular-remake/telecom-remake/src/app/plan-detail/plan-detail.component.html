@@ -21,7 +21,7 @@
 
                     </td>
                     <td>
-                        <i class="fas fa-pencil-alt fa-1x green" (click)="editPlan()"></i>
+                        <i class="fas fa-pencil-alt fa-1x green" ></i>
                         <i class="fas fa-trash-alt fa-1x red" (click)="deletePlan()"></i>
                     </td>
                 </tr>
@@ -30,18 +30,17 @@
         <div *ngIf="addPhoneBox">
             <app-add-phone [onePlan]=(onePlan)></app-add-phone>
         </div>
-        
+
     </div>
-    
+
 
     <div>
         <div class="container">
             <div class="row col-8">
                 <table class="table table-hover table-success" *ngIf="onePlan.phones.length !== 0">
-                    <thead >
+                    <thead>
                         <tr>
-                            <th scope="col">area</th>
-                            <th scope="col"> </th>
+                            <th scope="col">number</th>
                             <th scope="col">first name</th>
                             <th scope="col">last name</th>
                             <th>edit device</th>
@@ -49,13 +48,12 @@
                     </thead>
                     <tbody>
 
-                        <tr *ngFor="let onePhone of onePlan.phones">
-                            <td>{{onePhone.phone_area}}</td>
-                            <td>{{onePhone.phone_number}}</td>
-                            <td>{{onePhone.phone_first_name}}</td>
-                            <td>{{onePhone.phone_last_name}}</td>
+                        <tr *ngFor="let onePhone of onePlan.phones" >
+                            <td>{{onePhone.phoneNumber}}</td>
+                            <td contenteditable="true" >{{onePhone.phone_first_name}}</td>
+                            <td contenteditable="true" >{{onePhone.phone_last_name}}</td>
                             <td>
-                                <i class="fas fa-pencil-alt fa-1x" ></i>
+                                <i class="far fa-save fa-1x blue" (click)="editPhone()"></i>
                                 <i class="fas fa-trash-alt fa-1x red" (click)="deletePhone(onePhone.phone_id)"></i>
                             </td>
                         </tr>

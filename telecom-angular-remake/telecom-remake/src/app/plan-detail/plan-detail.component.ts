@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Phone from '../models/Phone';
 import Plan from '../models/Plan';
@@ -15,6 +15,7 @@ export class PlanDetailComponent implements OnInit {
   @Input() onePlan!: Plan;
   onePhone!: Phone;
   addPhoneBox!:boolean;
+  // phoneUpdate!: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,7 +32,11 @@ export class PlanDetailComponent implements OnInit {
   showAddDevice(): void { 
     this.addPhoneBox = !this.addPhoneBox;
   }
-  editPlan(): void { }
+
+
+  editPhone(): void {
+
+  }
 
 
   deletePlan(): void {

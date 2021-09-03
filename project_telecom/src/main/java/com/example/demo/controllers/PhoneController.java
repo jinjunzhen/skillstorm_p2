@@ -42,6 +42,10 @@ public class PhoneController {
 		return service.findPhoneById(phone_id);
 	}
 	
+	@GetMapping("/phone/generateNumber")
+	public String generateNumber() {
+		return service.generateNumber();
+	}
 	
 	@PutMapping("{phone_id}/addPhone/{plan_id}")
 	public Plan PhoneEnrollment(@PathVariable int phone_id, @PathVariable int plan_id) {
